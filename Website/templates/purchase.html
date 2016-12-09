@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AJ Theatres</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/AJTheatres.css">
+  <link rel="stylesheet" href="../static/css/purchase.css">
+  <link rel="stylesheet" href="../static/css/profile.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    <span class="navbar-brand">AJ Theatres</span>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-label">
+        <li class="navbar-item"><a href="{{ url_for('loggedInHome')}}">Home</a></li>
+        <li class="navbar-item"><a href="{{ url_for('profile')}}">Profile</a></li>
+        <li class="navbar-item"><a href="{{ url_for('purchaseTicket')}}">Purchase</a></li>
+        <li class="navebar-item"><a href="{{ url_for('searchedShowings')}}">Search Showing</a></li>
+        <li class="navbar-item"><a href="{{ url_for('home')}}">Sign Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <h3>Purchase Ticket</h3>
+  <span> Please select a movie title and hit the Buy Ticket button to purchase a seating for the showing!</span>
+  <div>
+     <form class="form-inline" action="/purchase" method="POST" >
+        <div class="dropdown Movie">
+          <select name="selectMovie" class= "form-control search-dimension" style="margin-top: 5px">
+            <option selected="selected">Select a Movie Title</option>
+             {% for Movie in MovieList %}
+              <option value="{{ Movie.2 }}">{{ Movie.0 }} - {{ Movie.1 }} - Room Number: {{ Movie.3 }}</option>
+              {% endfor %}      
+          </select>
+        </div>
+      <div style="margin-top: 15px; margin-left: 0px" class="ratingBtn form-group">
+            <button type="submit" class="btn btn-default">Go</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+
+
+</body>
+</html>

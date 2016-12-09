@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AJ Theatres</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/AJTheatres.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    <span class="navbar-brand">AJ Theatres</span>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-label">
+        <li class="navbar-item"><a href="{{ url_for('home') }}">Home</a></li>
+        <li class="navbar-item"><a href="{{ url_for('index') }}">Sign In</a></li>
+        <li class="navbar-item"><a href="/StaffIndex">Staff Site</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="section" style="margin-left:-20%">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+        <form class="form-inline" method="POST" action="/loggedIn">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Please select User ID</span>
+                <select name="comp_select" class="selectpicker form-control">
+                <option value="" selected>Please select an Account.</option>
+                {% for User in Users %}
+                <option name="customer" value="{{ User.0 }}">{{ User.0 }}</option>
+                {% endfor %}
+                </select>
+             </div>
+            <button type="submit" class="btn btn-default">Go</button>
+          </div>
+       </form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

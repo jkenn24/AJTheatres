@@ -1,0 +1,78 @@
+#profile-box{
+	display: inline-block;
+	margin-left: 5%;
+	float: left;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+
+.toppad {
+	margin-top:20px;
+	margin-left: -30%;
+}
+
+.addRatingSection{
+	margin-top: 20px;
+}
+
+#MovieRatings{
+	float:left;
+	margin-top: 5%;
+	border-bottom-style: solid;
+	border-bottom-color: lightgrey;
+	border-bottom-width: 0.5px;
+
+}
+
+#section{
+	height: 200px;
+}
+
+select{
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.dropdown{
+	display: inline-block;
+}
+
+.Rating{
+	padding-left: 10%;
+}
+
+.ratingBtn{
+	margin-left: 20px;
+}
+
+.btn-primary{
+	border-radius: 5px;
+}
+
+th{
+	padding-right: 200px;
+}
+
+td{
+	border-style: solid;
+	border-width: 0.5px;
+	border-color: lightgrey;
+	padding: 8px;
+}
+.footer{
+ 	position:fixed;
+ 	bottom:0;
+ 	left:0;
+ 	width: 100%;
+}
+

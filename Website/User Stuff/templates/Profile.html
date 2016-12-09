@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AJ Theatres</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/AJTheatres.css">
+  <link rel="stylesheet" href="../static/css/profile.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    <span class="navbar-brand">AJ Theatres</span>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-label">
+        <li class="navbar-item"><a href="{{ url_for('loggedInHome')}}">Home</a></li>
+        <li class="navbar-item"><a href="{{ url_for('profile')}}">Profile</a></li>
+        <li class="navbar-item"><a href="{{ url_for('purchaseTicket')}}">Purchase</a></li>
+        <li class="navebar-item"><a href="{{ url_for('searchedShowings')}}">Search Showing</a></li>
+        <li class="navbar-item"><a href="{{ url_for('home')}}">Sign Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" id="profile-box">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-6  toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title profile-name">Name</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class=" col-md-9 col-lg-9 "> 
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td>Date of Birth</td>
+                    <td>MM/DD/YYYY</td>
+                  </tr>
+                  <tr>
+                    <tr>
+                      <td>Gender</td>
+                      <td>?</td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td><a href="#">???</a></td>
+                    </tr>
+                    <td>Phone Number</td>
+                    <td>(Landline)<br><br>(Mobile)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="MovieRatings" class="col-md-9">
+      <div id="section">
+        <h4> Give Movies a Rating</h4>
+        <span>Please select a movie title in the drop down menu and give it a rating!</span><br>
+          <div class="addRatingSection">
+            <div class="dropdown Movie">
+               <select class= "form-control" placeholder="Select a Movie Title">
+                <option selected="selected">Select a Movie Title</option>      
+              </select>
+            </div>
+            <div class="dropdown Rating">
+              <select class="form-control" placeholder="Select a Rating">
+                <option value="" selected data-default>Select a Rating</option>      
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div style="display: inline-block" class="ratingBtn">
+              <button type="button" class="btn-primary">Add Rating</button>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h4>View all Movies and Ratings</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Movie Title</th>
+            <th>Movie Rating</th>
+          </tr>
+        </thead>
+        <tbody id="movieData">
+          <tr>
+            <td>A Title</td>
+            <td>A Rating</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AJ Theatres</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/AJTheatres.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    <span class="navbar-brand">AJ Theatres</span>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-label">
+        <li class="navbar-item"><a href="{{ url_for('loggedInHome')}}">Home</a></li>
+        <li class="navbar-item"><a href="{{ url_for('profile')}}">Profile</a></li>
+        <li class="navbar-item"><a href="{{ url_for('purchaseTicket')}}">Purchase</a></li>
+        <li class="navebar-item"><a href="{{ url_for('searchedShowings')}}">Search Showing</a></li>
+        <li class="navbar-item"><a href="{{ url_for('home')}}">Sign Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid " id="profile-box" style="margin-top: 10px">
+  <div class="col-sm-6">
+    <form action="/searchedShowingsSubmit" method="post">
+      <div class="form-group">
+        <label class="control-label" for="exampleInputEmail1">Movie Title</label>
+        <input name="MovieTitle" class="form-control" placeholder="Enter Movie Title" type="Title">
+      </div>
+      <div>
+        <div class="form-group">
+          <label for="filter">Filter by Genre</label>
+            <select name="Genre" class="form-control">
+              <option value="" selected>Please select a Genre</option>
+              {% for Genre in Genres %}
+              <option value="{{ Genre.0 }}">{{ Genre.0 }}</option>
+              {% endfor%}
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="contain">Start Date Filter</label>
+          <select name="StartDate" class="form-control">
+            <option value="" selected>Please selecet a Start Date</option>
+            {% for Year in Years %}
+            <option value="{{ Year.0 }}">{{ Year.0 }}</option>
+            {% endfor %}
+          </select>
+        </div>
+         <div class="form-group">
+          <label for="contain">End Date Filter</label>
+          <select name="EndDate" class="form-control">
+            <option value="" selected>Please select an End Date</option>
+            {% for Year in Years %}
+              <option value="{{ Year.0 }}">{{ Year.0 }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" name="seatsAvailable" value="1">
+              <b>Diplay Movies with Available Seating</b>
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+</body>
+</html>
